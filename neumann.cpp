@@ -3,18 +3,28 @@
 #include <typeinfo>
 #include <string>
 
+
+using namespace std;
 /**********************************************
 Function prototypes
 *********************************************/
 int prompt();	// Shows the main prompt
+int read(string operand);
+int write(string operand);
+int load(string operand);
+int store(string operand);
+int add(string operand);
+int subtract(string operand);
+int divide(string operand);
+int multiply(string operand);
 
 
-using namespace std;
+
 int main() {
 	cout 	<< ">>>    	Welcome to Neumann \n"
-			<< ">>> 	Please enter you program below after the ?\n"
+		<< ">>> 	Please enter you program below after the ?\n"
 			<< ">>> 	You can either enter an instruction\n"
-			<< ">>> 	one a time or enter a data byte.\n";
+				<< ">>> 	one a time or enter a data byte.\n";
 
 	// TODO: Write a function that displays the prompt
 	// TODO: Push the operands into an array
@@ -59,10 +69,54 @@ int prompt() {
 		currentLine++;
 	}
 	
+	/************************************************************
+	*************************************************************
+	WARNING! This logic is flawed! What are we currently executing?
+	We need to loop over and execute one at a time! Not like this!
+	*************************************************************
+	*************************************************************/
 	
 	// User pressed 9999 thus is done writing instructions!
 	// Time to execute now!
+	switch ( operationNumeric ) {
+		case "10":
+			read(string operand);
+			break;
+			
+		case "11":
+			write(string operand);
+			break;
+		
+		case "20":
+			load(string operand);
+			break;
+
+		case "21":
+			store(string operand);
+			break;
+			
+		case "30":
+			add(string operand);
+			break;
+		
+		case "31":
+			subtract(string operand);
+			break;
+			
+		case "32":
+			divide(string operand);
+			break;
+			
+		case "33":
+			multiply(string operand);
+			break;
 	
+		default:
+			// We'll just quit the porgram for now
+			cout << "Unknown command, error! Quiting!";
+			return 1;
+			break;
+	}
 	
 	return 0;
 }
