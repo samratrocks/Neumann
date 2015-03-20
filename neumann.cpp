@@ -1,4 +1,7 @@
 #include <iostream>
+#include <assert.h>
+#include <typeinfo>
+#include <string>
 
 /**********************************************
 Function prototypes
@@ -26,16 +29,24 @@ int main() {
 * instructions that tehy want to execute.
 */
 int prompt() {
-	// How to ge the line number this is currently on?
-	// should it be passed as a parameter or should there
-	// be another loop controlling this?
-	int currentInstruction = 0;
+	string currentInstruction = "";
+	string operation = "";
+	string operand = "";
 	int currentLine = 0;
-	while (currentInstruction != -9999) {
+	
+	
+	while (currentInstruction != "-9999") {
 		// Displays the prommpt like this "[0]:" 
 		cout << "[" << currentLine << "]: ";
 		
-		cin >> currentInstruction;
+		cin >> currentInstruction; 
+		if (currentInstruction.length() != 4) {
+			cout << "Unknown instruction!\nHALTING!\n";
+			return 1;
+		}
+		
+		//operation 
+		
 		currentLine++;
 	}
 	
