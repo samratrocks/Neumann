@@ -10,13 +10,13 @@ Function prototypes
 *********************************************/
 	// Shows the main prompt
 int read(string operand);
-// int write(string operand);
-// int load(string operand);
-// int store(string operand);
-// int add(string operand);
-// int subtract(string operand);
-// int divide(string operand);
-// int multiply(string operand);
+int write(string operand);
+int load(string operand);
+int store(string operand);
+int add(string operand);
+int subtract(string operand);
+int divide(string operand);
+int multiply(string operand);
 int prompt();
 
 
@@ -26,8 +26,8 @@ int main() {
 			<< ">>> 	You can either enter an instruction\n"
 				<< ">>> 	one a time or enter a data byte.\n";
 
-	// TODO: Write a function that displays the prompt
-	// TODO: Push the operands into an array
+	// DONE: Write a function that displays the prompt
+	// TODO: Implement the master array!
 
 
 	prompt();
@@ -129,8 +129,43 @@ int prompt() {
 /********************************************************
 * FUNCTION DECLARATIONS!
 *******************************************************/
-int read(string operand)
-{
-	cout << "Working!";
+int read(string operand){
+	cout << "Reading!";
 	return 0;
 }
+
+int write(string operand){
+	cout << "Writing!";
+	return 0;
+}
+
+int load(string operand){
+	cout << "Loading!";
+	return 0;
+}
+
+int store(string operand){
+	cout << "Storing!";
+	return 0;
+}
+
+int add(string operand){
+	cout << "Adding!";
+	return 0;
+}
+
+int subtract(string operand){
+	cout << "Subtracting!";
+	return 0;
+}
+
+int divide(string operand){
+	cout << "Dividing!";
+	return 0;
+}
+
+int multiply(string operand){
+	cout << "Multiplying!";
+	return 0;
+}
+
