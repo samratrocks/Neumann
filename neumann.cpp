@@ -38,7 +38,8 @@ int main() {
 				<< ">>> 	one a time or enter a data byte.\n";
 
 	// DONE: Write a function that displays the prompt
-	// TODO: Implement the master array!
+	// DONE: Implement the master array!
+	// TODO: Write out the Program Design Document
 	// TODO: Add a dump function that dumps the contetnts of the array
 
 	prompt();
@@ -81,12 +82,12 @@ int prompt() {
 	
 	operationNumeric = atoi(operation.c_str());
 	cout << operationNumeric << endl;
-	/************************************************************
-	*************************************************************
-	WARNING! This logic is flawed! What are we currently executing?
-	We need to loop over and execute one at a time! Not like this!
-	*************************************************************
-	*************************************************************/
+	/**************************************************************************
+	***************************************************************************
+	Updates: Added the functions to load and add string to the memory.
+	Updates: Need to write out the design of the program.
+	***************************************************************************
+	***************************************************************************/
 	
 	// User pressed 9999 thus is done writing instructions!
 	// Time to execute now!
