@@ -8,8 +8,8 @@ using namespace std;
 /**********************************************
 Function prototypes
 *********************************************/
-	// Shows the main prompt
-int read(string operand);
+// Shows the main prompt
+int read(string operand, int mainStack[]);
 int write(string operand);
 int load(string operand);
 int store(string operand);
@@ -17,18 +17,29 @@ int add(string operand);
 int subtract(string operand);
 int divide(string operand);
 int multiply(string operand);
+
+
 int prompt();
+void dump();
+
+
+// This is the main stack that contains all the data
+int mainStack[100];
+
+// This is the A register in the CPU
+int accumulator; 
+
 
 
 int main() {
-	cout 	<< ">>>    	Welcome to Neumann \n"
-		<< ">>> 	Please enter you program below after the ?\n"
-			<< ">>> 	You can either enter an instruction\n"
+	cout 		<< ">>>    	Welcome to Neumann \n"
+				<< ">>> 	Please enter you program below after the ?\n"
+				<< ">>> 	You can either enter an instruction\n"
 				<< ">>> 	one a time or enter a data byte.\n";
 
 	// DONE: Write a function that displays the prompt
 	// TODO: Implement the master array!
-
+	// TODO: Add a dump function that dumps the contetnts of the array
 
 	prompt();
 	return 0;
@@ -81,44 +92,44 @@ int prompt() {
 	// Time to execute now!
 	switch ( operationNumeric ) {
 		case 10:
-			read(operand);
-			break;
-		//
-		// case 11:
-		// 	write(operand);
-		// 	break;
-		//
-		// case 20:
-		// 	load(operand);
-		// 	break;
-		//
-		// case 21:
-		// 	store(operand);
-		// 	break;
-		//
-		// case 30:
-		// 	add(operand);
-		// 	break;
-		//
-		// case 31:
-		// 	subtract(operand);
-		// 	break;
-		//
-		// case 32:
-		// 	divide(operand);
-		// 	break;
-		//
-		// case 33:
-		// 	multiply(operand);
-		// 	break;
+		read(operand, mainStack[]);
+		break;
+
+		case 11:
+		write(operand);
+		break;
+
+		case 20:
+		load(operand);
+		break;
+
+		case 21:
+		store(operand);
+		break;
+
+		case 30:
+		add(operand);
+		break;
+
+		case 31:
+		subtract(operand);
+		break;
+
+		case 32:
+		divide(operand);
+		break;
+
+		case 33:
+		multiply(operand);
+		break;
 		case 99:
-			cout << "Quitting!";
-			break;
+		cout << "Quitting!";
+		break;
 		default:
-			// We'll just quit the porgram for now
-			cout << "Unknown command, error! Quiting!";
-			return 1;
-			break;
+		// We'll just quit the porgram for now
+		cout << "Unknown command, error! Quiting!";
+		return 1;
+		break;
 	}
 	
 	return 0;
@@ -129,8 +140,11 @@ int prompt() {
 /********************************************************
 * FUNCTION DECLARATIONS!
 *******************************************************/
-int read(string operand){
-	cout << "Reading!";
+int read(string operand, int mainStack[]){
+	address = atoi(operation.c_str());
+	int userInput = 0;
+	cin >> userInput;
+	mainStack[address] = userInput; 
 	return 0;
 }
 
