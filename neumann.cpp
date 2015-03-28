@@ -13,10 +13,10 @@ int read(string operand, int mainStack[]);
 int write(string operand, int mainStack[]);
 int load(string operand, int mainStack[], int accumulator);
 int store(string operand, int mainStack[], int accumulator);
-int add(string operand);
-int subtract(string operand);
-int divide(string operand);
-int multiply(string operand);
+int add(string operand, int mainStack[], int accumulator);
+int subtract(string operand, int mainStack[], int accumulator);
+int divide(string operand, int mainStack[], int accumulator);
+int multiply(string operand, int mainStack[], int accumulator);
 
 
 int prompt();
@@ -108,19 +108,19 @@ int prompt() {
 		break;
 
 		case 30:
-		add(operand);
+		add(operand, mainStack, accumulator);
 		break;
 
 		case 31:
-		subtract(operand);
+		subtract(operand, mainStack, accumulator);
 		break;
 
 		case 32:
-		divide(operand);
+		divide(operand, mainStack, accumulator);
 		break;
 
 		case 33:
-		multiply(operand);
+		multiply(operand, mainStack, accumulator);
 		break;
 		case 99:
 		cout << "Quitting!";
@@ -169,23 +169,37 @@ int store(string operand, int mainStack[], int accumulator){
 	return 0;
 }
 
-int add(string operand){
-	cout << "Adding!";
+int add(string operand, int mainStack[], int accumulator){
+	// Add the value in the given address into the accumulator
+	// and leave the result there
+	int address = atoi(operand.c_str());
+	mainStack[address] += accumulator;
 	return 0;
 }
 
-int subtract(string operand){
-	cout << "Subtracting!";
+int subtract(string operand, int mainStack[], int accumulator){
+	// Subtract the value in the given address into the accumulator
+	// and leave the result there 
+	int address = atoi(operand.c_str());
+	int value = accumulator - mainStack[address];
+	accumulator = value;
 	return 0;
 }
 
-int divide(string operand){
-	cout << "Dividing!";
+int divide(string operand, int mainStack[], int accumulator){
+	/*** Possible source of bug ***/
+	// What is it supposed to be ?
+	// acc / stack or stack / acc ??
+	int address = atoi(operand.c_str());
+	int value = accumulator / mainStack[address];
+	accumulator = value;
 	return 0;
 }
 
-int multiply(string operand){
-	cout << "Multiplying!";
+int multiply(string operand, int mainStack[], int accumulator){
+	int address = atoi(operand.c_str());
+	int value = accumulator * mainStack[address];
+	accumulator = value;
 	return 0;
 }
 
