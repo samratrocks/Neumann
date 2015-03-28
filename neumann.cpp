@@ -12,7 +12,7 @@ Function prototypes
 int read(string operand, int mainStack[]);
 int write(string operand, int mainStack[]);
 int load(string operand, int mainStack[], int accumulator);
-int store(string operand);
+int store(string operand, int mainStack[], int accumulator);
 int add(string operand);
 int subtract(string operand);
 int divide(string operand);
@@ -104,7 +104,7 @@ int prompt() {
 		break;
 
 		case 21:
-		store(operand);
+		store(operand, mainStack, accumulator);
 		break;
 
 		case 30:
@@ -162,8 +162,10 @@ int load(string operand, int mainStack[], int accumulator){
 	return 0;
 }
 
-int store(string operand){
-	cout << "Storing!";
+int store(string operand, int mainStack[], int accumulator){
+	// Store a word from the memory into the accumulator
+	int address = atoi(operand.c_str());
+	mainStack[address] = accumulator;
 	return 0;
 }
 
