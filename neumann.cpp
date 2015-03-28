@@ -11,7 +11,7 @@ Function prototypes
 // Shows the main prompt
 int read(string operand, int mainStack[]);
 int write(string operand, int mainStack[]);
-int load(string operand);
+int load(string operand, int mainStack[], int accumulator);
 int store(string operand);
 int add(string operand);
 int subtract(string operand);
@@ -93,14 +93,14 @@ int prompt() {
 	// Time to execute now!
 	switch ( operationNumeric ) {
 		case 10:
-		read(operand, mainStack[]);
+		read(operand, mainStack);
 			break;
 
 		case 11:
-		write(operand, mainStack[]);
+		write(operand, mainStack);
 			break;
 		case 20:
-		load(operand);
+		load(operand, mainStack, accumulator);
 		break;
 
 		case 21:
@@ -154,8 +154,11 @@ int write(string operand, int mainStack[]){
 	return 0;
 }
 
-int load(string operand){
-	cout << "Loading!";
+int load(string operand, int mainStack[], int accumulator){
+	// Load takes the given address and stores the data in that location
+	// in the memory to the A register
+	int address = atoi(operand.c_str()); 	// convert the address from string to integer
+	accumulator = mainStack[address];
 	return 0;
 }
 
