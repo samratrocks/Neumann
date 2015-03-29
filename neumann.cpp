@@ -57,7 +57,7 @@ int prompt() {
 	string operation = "";
 	string operand = "";
 	int currentLine = 0;
-	int operationNumeric;		// int conversion of operation for swtich statement
+	int operationNumeric;		// int conversion of operation for switch statement
 	
 	
 	while (currentInstruction != "9999") {
