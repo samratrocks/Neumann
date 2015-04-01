@@ -60,6 +60,8 @@ int prompt() {
 	int operationNumeric;		// int conversion of operation for switch statement
 	
 	
+	
+	// Stores each instruction in Neumann's memory
 	while (currentInstruction != "9999") {
 		// 9999 is the command to quit I
 		// Displays the prommpt like this "[0]:" 
@@ -70,6 +72,8 @@ int prompt() {
 			cout << "Instructions can only be 4 letters long!\nHALTING!\n";
 			return 1;
 		}
+		
+		mainStack[currentLine] = stoi(currentInstruction);
 		
 		// Split the first two letters and assign that to operation key
 		// Split the remaining two and assign that to operand 
@@ -122,9 +126,11 @@ int prompt() {
 		case 33:
 		multiply(operand, mainStack, accumulator);
 		break;
+		
 		case 99:
 		cout << "Quitting!";
 		break;
+		
 		default:
 		// We'll just quit the porgram for now
 		cout << "Unknown command, error! Quiting!";
