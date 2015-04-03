@@ -10,7 +10,7 @@ Function prototypes
 *********************************************/
 // Shows the main prompt
 int read(string operand, int mainStack[]);
-int write(string operand);
+int write(string operand, int mainStack[]);
 int load(string operand);
 int store(string operand);
 int add(string operand);
@@ -92,13 +92,12 @@ int prompt() {
 	// Time to execute now!
 	switch ( operationNumeric ) {
 		case 10:
-		read(operand, mainStack[]);
-		break;
+		read(operand, mainStack);
+			break;
 
 		case 11:
-		write(operand);
-		break;
-
+		write(operand, mainStack);
+			break;
 		case 20:
 		load(operand);
 		break;
@@ -141,15 +140,16 @@ int prompt() {
 * FUNCTION DECLARATIONS!
 *******************************************************/
 int read(string operand, int mainStack[]){
-	address = atoi(operation.c_str());
+	int address = atoi(operand.c_str());	// convert the address from string to integer
 	int userInput = 0;
 	cin >> userInput;
 	mainStack[address] = userInput; 
 	return 0;
 }
 
-int write(string operand){
-	cout << "Writing!";
+int write(string operand, int mainStack[]){
+	int address = atoi(operand.c_str());	// convert the address from string to integer
+	cout << mainStack[address];
 	return 0;
 }
 
