@@ -92,11 +92,11 @@ int prompt() {
 	// Time to execute now!
 	switch ( operationNumeric ) {
 		case 10:
-		read(operand, mainStack);
+		read(operand, mainStack[]);
 			break;
 
 		case 11:
-		write(operand, mainStack);
+		write(operand, mainStack[]);
 			break;
 		case 20:
 		load(operand);
