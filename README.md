@@ -12,3 +12,8 @@ REGISTERS:
 accumulator (A), counter (C) and instruction register (I)
 
 Memory is composed of 100 "bits."
+
+TODO: 
+1. Add the execution logic to the program
+2. Add the dump function
+3. Refactor!
